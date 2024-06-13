@@ -1,1 +1,4 @@
-# hacker_news_parsing
+This Python script scrapes Hacker News articles from multiple pages and saves them into both a SQLite database (`hacker_news_articles.db`) and a CSV file (`hacker_news_articles.csv`). The script makes use of the `requests` library to fetch HTML content from Hacker News pages. It uses `BeautifulSoup` for parsing this HTML content. Each page's URL is constructed, starting from the main page and then iteratively for subsequent pages.
+The SQLite database table is created if it doesn't exist, ensuring unique article entries via an `id` column. Concurrently, the CSV file is created or opened in write mode (`'w'`), and each fetched article's title and link are written row by row using the `csv.writer`.
+To avoid overwhelming the server and getting blocked, the script incorporates a random delay (between 1 to 7 seconds using `time.sleep(randint(15, 20))`) after each page request.
+This project effectively demonstrates web parsing using Python, database management with SQLite, and file handling with CSV, providing a practical example of how to automate data extraction and storage from a website.
